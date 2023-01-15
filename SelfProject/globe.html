@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A-Frame 3D Globe Component Example</title>
+    <meta name="description" content="Example for 3D Globe component.">
+    <!--AFrame version 1.2.0-->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!--Globe Component https://github.com/vasturiano/aframe-globe-component-->
+    <script src="https://unpkg.com/aframe-globe-component/dist/aframe-globe-component.min.js"></script>
+    <script> src="../js/js/CursorEvents.js"</script>
+    <script> src="../js/js/SideView.js"</script>
+    <script> src="../js/js/Tour.js"</script>
+    <style>
+      a-scene {
+      height: 900px;
+      width: 1600px;
+       }
+      </style>
+  </head>
+  <body>
+    <a-scene embedded>
+      <a-entity id="globeID" scale="0.1 0.1 0.1" globe="
+        globe-image-url: https://upload.wikimedia.org/wikipedia/commons/0/04/Solarsystemscope_texture_8k_earth_daymap.jpg;
+        bump-image-url: https://upload.wikimedia.org/wikipedia/commons/f/fb/Solarsystemscope_texture_8k_earth_normal_map.tif"
+        look-controls>
+  <!--<a-sphere id="Paris" position="-100 120 0" radius="10"
+        color="red">
+      </a-sphere>
+      <a-sphere id="Taj Mahal" position="-50 120 0" radius="10"
+        color="red">
+      </a-sphere>
+      <a-sphere id="New York City" position="0 120 0" radius="10"
+        color="red">
+      </a-sphere>
+      <a-sphere id="Budapest" position="50 120 0" radius="10"
+        color="red">
+      </a-sphere>
+    -->
+    <a-entity id="places-container" cursor-listener tour></a-entity>
+    <a-entity
+        id="side-view-container"
+        place-side-view
+        cursor-listener
+      ></a-entity>
+      </a-entity>
+      <a-entity camera position="0 0 25">
+          <a-cursor color="lavender" opacity="0.5" raycaster="objects: .collidable"></a-cursor>
+      </a-entity>
+      <a-sky color="#001"></a-sky>
+    </a-scene>
+    <a-camera id="camera" wasd-controls="enabled:true;" gps-camera rotation-reader>
+        <!-- App Title -->
+        <a-entity
+          id="app-title"
+          position="0 0.73 -1"
+          text="font: exo2bold; align: center; width: 2; color: #FFFFFF; value: It's time to travel virtually!"
+        >
+        
+          <a-entity
+            id="app-subtitle"
+            position="0 -0.1 0"
+            text="font: dejavu; align: center; width: 1; color: #FFFFFF; value: Travel Around The World"
+          ></a-entity>
+        </a-entity>
+       
+       
+        </a-entity>
+
+        <!-- CURSOR -->
+        <a-entity
+          id="camera-cursor"
+          cursor
+          position="0 20 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: #FFFFFF; shader: flat"
+        >
+        
+        </a-entity>
+      </a-camera>
+  </body>
+</html>

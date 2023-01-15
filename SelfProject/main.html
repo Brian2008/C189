@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>See The World!</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <script src="./main.js"></script>
+  </head>
+  <body>
+    <a-scene id="main-scene">
+      <a-sky id="main-container" radius="5000" color="#000000"></a-sky>
+
+      <!-- Places Container -->
+      <a-entity id="places-container" cursor-listener tour></a-entity>
+      
+
+      <!-- Different Side View of the Places -->
+      <a-entity
+        id="side-view-container"
+        place-side-view
+        cursor-listener
+      ></a-entity>
+    <a-asset>
+        <a-asset-item
+            id="globe" 
+            src="./low_poly_earth/scene.gltf"
+        ></a-asset-item>
+    </a-asset>
+    <a-entity 
+        id="globe"
+        gltf-model="#globe"
+        position="0 1.5 -2"
+        scale="1 1 1"
+        dynamic="true"
+        rotation="0 0 0"
+        look-controls
+        >
+        <a-sphere
+          id="Paris"
+          radius="0.01"
+          color="red"
+          position="0.67 0.72 0.15"
+        ></a-sphere>
+        <a-sphere
+        id="Taj Mahal"
+        radius="0.01"
+        color="red"
+        position="0.57 0.23 -0.79"
+      ></a-sphere>
+        
+      </a-entity>
+        
+      <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9">
+
+      </a-box>-->
+      <a-camera id="camera" wasd-controls="enabled:true;">
+        <!-- App Title -->
+        <a-entity
+          id="app-title"
+          position="0 0.73 -1"
+          text="font: exo2bold; align: center; width: 2; color: #FFFFFF; value: It's time to travel virtually!"
+        >
+        
+          <a-entity
+            id="app-subtitle"
+            position="0 -0.1 0"
+            text="font: dejavu; align: center; width: 1; color: #FFFFFF; value: Travel Around The World"
+          ></a-entity>
+        </a-entity>
+       
+       
+        </a-entity>
+
+        <!-- CURSOR -->
+        <a-entity
+          id="camera-cursor"
+          cursor
+          position="0 20 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: #FFFFFF; shader: flat"
+        >
+        
+        </a-entity>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
+Footer
